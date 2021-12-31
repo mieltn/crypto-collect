@@ -1,7 +1,7 @@
 # crypto currency data collection
 App provides functionality to automatically collect and update data about selected crypto currency rates and its market capitalization.
 
-Project purpose is to start working with postgres and get familiar with airflow.
+Project purpose is to start working with **postgres** and get familiar with **airflow**.
 
 It automates the proccess of:
 1. Scraping data from [web](https://coinmarketcap.com/)
