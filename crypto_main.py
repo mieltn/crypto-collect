@@ -8,6 +8,10 @@ from config import DATABASE, USER
 
 
 def getCurrency(url, cur):
+    '''
+    Gets specified currency's rate and market cap
+    '''
+
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
     rate = (
@@ -30,20 +34,25 @@ def getCurrency(url, cur):
     }
 
 
-if __name__ == '__main__':
+def runCryptoUpdate():
+    '''
+    Handles data updates
+    '''
+
+    conn = connect(DATABASE, USER)
+    cursor = conn.cursor()
 
     for CUR in CURRENCIES:
 
         url = '/'.join([REQ, CUR])
         data = getCurrency(url, CUR)
         print(data)
-
-        conn = connect(DATABASE, USER)
-        cursor = conn.cursor()
         print(insert(cursor, data))
         conn.commit()
 
-        cursor.close()
-        conn.close()
+    cursor.close()
+    conn.close()
 
 
+if __name__ == '__main__':
+    runCryptoUpdate()

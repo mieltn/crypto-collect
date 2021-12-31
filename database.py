@@ -2,6 +2,9 @@ import psycopg2
 from config import TABLE
 
 def connect(DATABASE, USER):
+    '''
+    Handles connection to db
+    '''
     conn = psycopg2.connect(
         host = 'localhost',
         database = DATABASE,
@@ -11,6 +14,10 @@ def connect(DATABASE, USER):
 
 
 def insert(cursor, data):
+    '''
+    Handles data inserts
+    '''
+
     query = '''
     INSERT INTO crypto_rates (crypto_name, rate, market_cap)
       VALUES ('{}', {}, {})

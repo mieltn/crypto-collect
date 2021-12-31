@@ -1,6 +1,7 @@
 # url data
 REQ = 'https://coinmarketcap.com/currencies/'
-CURRENCIES = ['bitcoin', 'ethereum', 'binance-coin', 'tether']
+# add any currencies needed
+CURRENCIES = ['bitcoin', 'ethereum', 'binance-coin']
 
 # database config data
 DATABASE = 'crypto'
